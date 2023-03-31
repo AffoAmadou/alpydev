@@ -1,0 +1,26 @@
+.project__mobile{
+    width           : 100%;
+    height          : 100vh;
+    margin-bottom: .1rem;
+    @extend %center;
+    pointer-events: none;
+    overflow: hidden;
+
+    visibility: hidden;
+}
+.project__mobile__wrapper{
+    // width: 120.2rem;
+ width: 100%;
+    @extend %center;
+    justify-content: space-around;
+}
+.project__mobile__image {
+    width   : 30rem;
+    height  : 64.886rem;
+    position: relative;
+    // margin-right: 15.1rem;
+}
+.project__mobile__image__media{
+    @extend %cover;
+    object-fit: cover;
+}

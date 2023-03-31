@@ -1,0 +1,57 @@
+.project__process {
+    width  : 100%;
+    padding: 26rem 0;
+    @extend %center;
+
+}
+
+.project__process__wrapper {
+    display       : flex;
+    width         : 109rem;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+.project__process__intitulation {
+    margin-bottom: 18.5rem;
+}
+
+.project__process__title {
+    @extend %title-25;
+}
+
+.project__process__subtitle {
+    display   : flex;
+    flex-direction: column;
+}
+
+.project__process__role {
+    @extend %description-12;
+    margin-bottom: .1rem;
+}
+
+.project__process__type {
+    @extend %description-12;
+}
+
+.project__process__description {
+    display        : flex;
+    flex-direction: column;
+}
+
+.project__process__description__main {
+    @extend %description-25;
+   margin-bottom: 3rem;
+   line-height: 3rem;
+}
+
+.project__process__description__submain {
+    @extend %description-18 ;
+    color: #777777;
+    margin-bottom: 4rem;
+    line-height: 2.1rem;
+}
+
+.project__process__link {
+    @extend %link-17;
+}

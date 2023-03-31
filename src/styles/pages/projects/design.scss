@@ -1,0 +1,17 @@
+.project__design {
+    width           : 100%;
+    height          : 100vh;
+    margin-bottom: .1rem;
+    @extend %center;
+}
+
+.project__design__image {
+    width   : 120.2rem;
+    height  : 61.4rem;
+    position: relative;
+}
+
+.project__design__image__media {
+    @extend %cover;
+    object-fit: cover;
+}

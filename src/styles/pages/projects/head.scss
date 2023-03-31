@@ -1,0 +1,55 @@
+.project {
+    @extend %page;
+    width   : 100vw;
+    overflow: hidden;
+    padding-bottom: 10rem;
+}
+
+.project__wrapper {}
+
+.project__head {
+    width     : 100%;
+    height    : 100vh;
+    margin-top: 15rem;
+    position  : relative;
+
+    @include media('<phone') {
+        margin-top: 26rem;
+        height    : 42.2rem;
+    }
+}
+
+.project__image {
+    width   : 100vw;
+    height  : 100%;
+    position: relative;
+
+    @include media('<phone') {
+        height: 42.2rem;
+    }
+}
+
+.project__image__media {
+    @extend %cover;
+    object-fit: cover;
+}
+
+.project__head__wrapper {}
+
+.project__title {
+    @extend %title-210;
+
+    text-align: center;
+    position  : absolute;
+    top       : 50%;
+    left      : 50%;
+    transform : translate(-50%, -50%);
+    color     : $color-white;
+    width     : 126.1rem;
+
+    @include media('<phone') {
+        width: 52.4rem;
+        color: black;
+        top  : -4rem;
+    }
+}

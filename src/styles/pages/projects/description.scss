@@ -1,0 +1,21 @@
+.project__description {
+    width : 100vw;
+    height: 42.8rem;
+    @extend %center;
+
+    @include media('<phone') {
+       height:42.4rem; 
+      }
+}
+
+.project__description__text {
+    @extend %description-18;
+
+    line-height: 2.1rem;
+    width      : 96.5rem;
+    text-align : center;
+    @include media('<phone') {
+       width: 51.9rem;
+       line-height: 3.2rem;
+       }
+}

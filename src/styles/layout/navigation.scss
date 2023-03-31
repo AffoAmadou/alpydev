@@ -1,0 +1,55 @@
+.navigation {
+  @extend %center;
+  position: fixed;
+  top     : 0;
+  left    : 0;
+  z-index : z('navigation');
+  height  : 13.9rem;
+  width   : 100vw;
+}
+.navigation__wrapper {
+  width          : 164rem;
+  height         : 100%;
+  display        : flex;
+  justify-content: space-between;
+  align-items    : center;
+  // @include media('<phone') {
+  //   width: 66.8rem;
+  // }
+}
+
+.navigation__logo__wrapper {
+  width   : 5.2rem;
+  height  : 5.19rem;
+  position: relative;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navigation__logo__image {
+  @extend %cover;
+  object-fit: cover;
+}
+
+.navigation__links__wrapper{
+  width: 43.1rem;
+}
+.navigation__list {
+  display: flex;
+}
+
+.navigation__list__item {
+  margin-left: .9rem;
+
+  // @include media('<phone') {
+  //   margin-left: 4rem;
+  // }
+}
+
+.navigation__list__link {
+  // @extend %description-20;
+  color: black;
+}
+
