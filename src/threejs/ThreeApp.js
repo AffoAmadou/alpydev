@@ -1,11 +1,9 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import * as shader from "./Shaders/Shader";
+
 import vertex from "../shader/vertex.glsl";
 import fragment from "../shader/fragment.glsl";
-import imagesLoaded from 'imagesloaded';
-import ohi from '../assets/ohi.png';
-
+import imagesLoaded from "imagesloaded";
 
 export default class Sketch {
   constructor(selector) {
@@ -25,9 +23,8 @@ export default class Sketch {
 
     this.texture = new THREE.Texture();
 
-
     this.camera.position.z = 600;
-    this.camera.fov = 2 * Math.atan((this.height / 2) / 600) * (180 / Math.PI);
+    this.camera.fov = 2 * Math.atan(this.height / 2 / 600) * (180 / Math.PI);
 
     this.renderer = new THREE.WebGLRenderer({
       antialias: true,
@@ -39,13 +36,9 @@ export default class Sketch {
     // this.renderer.outputEncoding = THREE.sRGBEncoding;
     this.container.appendChild(this.renderer.domElement);
 
-
-
     console.log(this.images);
 
-
     this.images = [];
-
 
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
     this.time = 0;
@@ -53,10 +46,14 @@ export default class Sketch {
     this.isPlaying = true;
 
     const preloadImages = new Promise((resolve, reject) => {
-      imagesLoaded(document.querySelectorAll("img"), { background: true }, resolve);
+      imagesLoaded(
+        document.querySelectorAll("img"),
+        { background: true },
+        resolve
+      );
     });
 
-    let allDone = [preloadImages]
+    let allDone = [preloadImages];
 
     Promise.all(allDone).then(() => {
       // this.addObjects();
@@ -68,7 +65,7 @@ export default class Sketch {
       this.setupResize();
 
       this.render();
-    })
+    });
   }
 
   settings() {
@@ -108,8 +105,8 @@ export default class Sketch {
       },
       // wireframe: true,
       // transparent: true,
-      vertexShader: shader.vertex,
-      fragmentShader: shader.fragment,
+      vertexShader: vertex,
+      fragmentShader: fragment,
     });
 
     this.geometry = new THREE.PlaneGeometry(1, 1, 1, 1);
@@ -135,31 +132,33 @@ export default class Sketch {
         uImage: { value: 0 },
         hover: { value: new THREE.Vector2(0.5, 0.5) },
         hoverState: { value: 0 },
-        uT:{value:0}
+        uT: { value: 0 },
       },
       vertexShader: vertex,
       fragmentShader: fragment,
-    })
+    });
 
-    this.materials = []
+    this.materials = [];
 
-    this.imageStore = this.images.map(img => {
-      let bounds = img.getBoundingClientRect()
+    this.imageStore = this.images.map((img) => {
+      let bounds = img.getBoundingClientRect();
 
-      let geometry = new THREE.PlaneGeometry(bounds.width, bounds.height, 10, 10);
+      let geometry = new THREE.PlaneGeometry(
+        bounds.width,
+        bounds.height,
+        10,
+        10
+      );
       let texture = new THREE.Texture(img);
 
       texture.needsUpdate = true;
 
-   
       let material = this.material.clone();
 
-
-      this.materials.push(material)
+      this.materials.push(material);
       material.uniforms.uT.value = texture;
       let mesh = new THREE.Mesh(geometry, material);
-      this.scene.add(mesh)
-
+      this.scene.add(mesh);
 
       return {
         img: img,
@@ -167,28 +166,28 @@ export default class Sketch {
         top: bounds.top,
         left: bounds.left,
         width: bounds.width,
-        height: bounds.height
-      }
-    })
+        height: bounds.height,
+      };
+    });
 
     console.log(this.imageStore);
-
   }
 
   setPosition() {
-    this.imageStore.forEach(o => {
-      o.mesh.position.y = this.currentScroll - o.top + this.height / 2 - o.height / 2;
+    this.imageStore.forEach((o) => {
+      o.mesh.position.y =
+        this.currentScroll - o.top + this.height / 2 - o.height / 2;
       o.mesh.position.x = o.left - this.width / 2 + o.width / 2;
-    })
+    });
   }
   render() {
     // if (!this.isPlaying) return;
     this.time += 0.05;
     // this.material.uniforms.time.value = this.time;
     this.setPosition();
-    this.materials.forEach(m => {
+    this.materials.forEach((m) => {
       m.uniforms.time.value = this.time;
-    })
+    });
     window.requestAnimationFrame(this.render.bind(this));
     this.renderer.render(this.scene, this.camera);
   }
