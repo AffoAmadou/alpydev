@@ -18,7 +18,7 @@ export default class Sketch {
 
     this.camera = new THREE.PerspectiveCamera(
       70,
-      window.innerWidth / window.innerHeight,
+      this.width / this.height,
       100,
       2000
     );
@@ -59,7 +59,6 @@ export default class Sketch {
     let allDone = [preloadImages]
 
     Promise.all(allDone).then(() => {
-      // this.addObjects();
       this.images = [...document.querySelectorAll("img")];
       this.addImages();
       this.setPosition();
@@ -68,6 +67,13 @@ export default class Sketch {
       this.setupResize();
 
       this.render();
+
+      window.addEventListener("scroll", () => {
+        this.currentScroll = window.scrollY;
+        console.log(this.currentScroll);
+        this.setPosition();
+      });
+      ;
     })
   }
 
@@ -90,6 +96,8 @@ export default class Sketch {
     this.renderer.setSize(this.width, this.height);
     this.camera.aspect = this.width / this.height;
     this.camera.updateProjectionMatrix();
+    console.log("resize");
+    this.setPosition();
   }
 
   addObjects() {
@@ -135,7 +143,7 @@ export default class Sketch {
         uImage: { value: 0 },
         hover: { value: new THREE.Vector2(0.5, 0.5) },
         hoverState: { value: 0 },
-        uT:{value:0}
+        uT: { value: 0 }
       },
       vertexShader: vertex,
       fragmentShader: fragment,
@@ -147,11 +155,15 @@ export default class Sketch {
       let bounds = img.getBoundingClientRect()
 
       let geometry = new THREE.PlaneGeometry(bounds.width, bounds.height, 10, 10);
-      let texture = new THREE.Texture(img);
+
+      let image = new Image();
+      image.src = img.src;
+      let texture = new THREE.Texture(image);
+
 
       texture.needsUpdate = true;
 
-   
+
       let material = this.material.clone();
 
 
