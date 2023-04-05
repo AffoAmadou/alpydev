@@ -35,6 +35,8 @@
 
 .navigation__links__wrapper{
   width: 43.1rem;
+  display: flex;
+  justify-content: end;
 }
 .navigation__list {
   display: flex;

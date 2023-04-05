@@ -19,7 +19,7 @@ export default function App() {
     <>
       <section className="containerRef" data-scroll-container>
         <Routes>
-          <Route path="/" element={<Home />} ></Route>
+          <Route path="/" element={<Home template="home" />} ></Route>
           <Route path="portfolio" element={<Portfolio />}></Route>
         </Routes>
 

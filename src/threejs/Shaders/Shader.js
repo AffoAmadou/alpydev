@@ -19,14 +19,14 @@ varying vec2 vUv;
 uniform sampler2D uImage;
 uniform float time;
 uniform float hoverState;
+uniform sampler2D uT;
+
 
 void main() {
 
     vec2 newUV = vUv;
 
-    vec4 oceanView = texture2D(uImage, vUv);
-
-
-    gl_FragColor = vec4(oceanView);
+    vec4 texture = texture2D(uT, vUv);
+    gl_FragColor = texture;
 }
 `;

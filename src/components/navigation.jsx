@@ -14,10 +14,10 @@ export default function Navigation() {
                                 <Link to='/'>Accueil</Link>
                             </li>
                             <li className="navigation__list__item">
-                                <Link to='/portfolio'>A propos</Link>
+                                <Link to='/apropos'>A propos</Link>
                             </li>
                             <li className="navigation__list__item">
-                                <Link to='/about'>Projets</Link>
+                                <Link to='/about'>Realisations</Link>
                             </li>
                             <li className="navigation__list__item">
                                 <Link to='/contact'>Contact</Link>
