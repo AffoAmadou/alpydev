@@ -136,7 +136,7 @@ export default class Sketch {
     this.imageStore = this.images.map(img => {
       let bounds = img.getBoundingClientRect()
 
-      let geometry = new THREE.PlaneGeometry(1, 1, 10, 10);
+      let geometry = new THREE.PlaneGeometry(1, 1, 100, 100);
 
       let image = new Image();
       image.src = img.src;

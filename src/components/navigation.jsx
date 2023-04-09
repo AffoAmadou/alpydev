@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom'
+import logo from '../assets/alpy.png'
 export default function Navigation() {
     return (
         <>
             <div className="navigation">
                 <div className="navigation__wrapper">
                     <div className="navigation__logo__wrapper">
-                        {/* <Link to='/'><img className="navigation__logo__image" src={logo} alt="" /></Link> */}
-                        <Link to='/'>Home</Link>
+                        <Link to='/'><img className="navigation__logo__image" src={logo} alt="" /></Link>
                     </div>
                     <div className="navigation__links__wrapper">
                         <ul className="navigation__list">

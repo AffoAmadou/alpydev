@@ -13,11 +13,9 @@
   font-weight: 500;
 }
 
-// %title-210 {
-//   font-family: $font-colus;
-//   font-size  : 21rem;
-
-//   @include media('<phone') {
-//     font-size: 6.5rem;
-//   }
-// }
+%title-80 {
+  font-family: $font-archivo;
+  font-size  : 8.0rem;
+  line-height: 8.8rem;
+  font-weight: 600;
+}
