@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
 import Navigation from '../components/navigation'
 import { useEffect, useRef } from 'react'
-
+import GSAP from 'gsap'
 import vide from '../assets/show.mp4'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 
 export default function Home({ }) {
@@ -10,6 +11,33 @@ export default function Home({ }) {
     const videoRef = useRef(null);
     useEffect(() => {
         if (videoRef.current) {
+            GSAP.registerPlugin(ScrollTrigger);
+
+            GSAP.fromTo(['.home__header__title', '.home__header__subtitle'], 
+                { y: 100, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 1.5,
+                    ease: "cubic-bezier(0.77, 0, 0.175, 1)",
+                    stagger: 0.2
+                });
+
+
+            const tl = GSAP.timeline({
+                scrollTrigger: {
+                    trigger: '.home__showreel',
+                    start: 'top 80%',
+                    end: 'top 30%',
+                    scrub: 1,
+                }
+            });
+            tl.fromTo('.home__showreel', { scale: 0.5 },
+                {
+                    scale: 1,
+                    duration: 1.5,
+                    ease: "cubic-bezier(0.77, 0, 0.175, 1)"
+                });
             videoRef.current.play();
         }
     }, []);
