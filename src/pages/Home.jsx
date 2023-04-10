@@ -36,6 +36,16 @@ export default function Home({ }) {
                             <source src={vide} type='video/mp4' />
                         </video>
                     </div>
+                    <div className="home__aim">
+                        <p className="home__aim__text">
+                            Nous aidons les entreprises en leur
+                            fournissant les outils du web les
+                            mieux adaptés à leurs besoins.
+                        </p>
+                    </div>
+                    <div className="home__projects">
+
+                    </div>
                 </div>
             </div>
         </>

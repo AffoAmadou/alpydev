@@ -54,3 +54,23 @@
 
   filter: brightness(.5);
 }
+
+.home__aim{
+  height: 61.1rem;
+  width: 100%;
+  padding: 0 14rem;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.home__aim__text{
+  @extend %description-50;
+  width: 73.5rem;
+}
+
+.home__projects{
+  width: 100vw;
+  height: 176.9rem;
+  background-color: $color-blue;
+}
