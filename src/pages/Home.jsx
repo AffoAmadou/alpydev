@@ -18,7 +18,8 @@ export default function Home({ }) {
                 {
                     y: 0,
                     opacity: 1,
-                    duration: 1.5,
+                    duration: 1,
+                    delay: 0.5,
                     ease: "cubic-bezier(0.77, 0, 0.175, 1)",
                     stagger: 0.2
                 });
