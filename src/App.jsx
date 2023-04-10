@@ -14,6 +14,7 @@ export default function App() {
   useSmoothScroll();
    //The argument for useThree is your threejs main class
    const canvas = useThree(ThreeApp);
+   
 
   return (
     <>

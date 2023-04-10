@@ -1,26 +1,41 @@
 import { Link } from 'react-router-dom'
 import Navigation from '../components/navigation'
 import { useEffect, useRef } from 'react'
-import Sketch from '../threejs/ThreeApp'
-import one from '../assets/one.png'
-import two from '../assets/two.png'
-import three from '../assets/three.png'
-import four from '../assets/four.png'
-import five from '../assets/five.png'
-import six from '../assets/six.png'
-import seven from '../assets/seven.png'
-import eight from '../assets/eight.png'
+
+import vide from '../assets/show.mp4'
 
 
 export default function Home({ }) {
 
+    const videoRef = useRef(null);
+    useEffect(() => {
+        if (videoRef.current) {
+            videoRef.current.play();
+        }
+    }, []);
     return (
         <>
             <div className="home">
                 <Navigation />
                 <div className="home__wrapper">
-                    
-                   
+                    <div className="home__header__wrapper">
+                        <div className="home__header__content">
+                            <h1 className="home__header__title">Alpy dev est une Agence web
+                                basée à Annecy,<br />
+                                France.</h1>
+
+                            <div className="home__header__subtitle">
+                                Solutions web de qualité
+                                pour renforcer les
+                                entreprises.
+                            </div>
+                        </div>
+                    </div>
+                    <div className="home__showreel__container">
+                        <video ref={videoRef} className='home__showreel' autoPlay muted loop>
+                            <source src={vide} type='video/mp4' />
+                        </video>
+                    </div>
                 </div>
             </div>
         </>
