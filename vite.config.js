@@ -8,9 +8,9 @@ export default defineConfig({
     react(),
     glsl(),
   ],
-  build: {
-    rollupOptions: {
-      external: ['gsap', 'gsap/ScrollTrigger'],
-    },
-  },
+  // build: {
+  //   rollupOptions: {
+  //     external: ['gsap', 'gsap/ScrollTrigger'],
+  //   },
+  // },
 })
