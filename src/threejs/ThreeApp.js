@@ -8,7 +8,7 @@ import imagesLoaded from 'imagesloaded';
 import * as dat from "dat.gui";
 import brush from "../assets/brush.png";
 import dots from "../assets/texture/NormalMap.png";
-
+import GSAP from "gsap";
 
 export default class Sketch {
   constructor(selector) {
@@ -275,6 +275,31 @@ export default class Sketch {
       const sphere = new THREE.Mesh(geometry, material);
       this.scene1.add(sphere);
 
+      const tl = GSAP.timeline({ ease: "cubic-bezier(0.77, 0, 0.175, 1)" });
+
+
+      // Animate rotation
+      tl.add(
+        GSAP.to(sphere.rotation, {
+          duration: 2,
+          y: "+=3",
+        }),
+        0 // Start at the same time
+      );
+      
+      // Animate scale from double to normal size
+      tl.add(
+        GSAP.fromTo(
+          sphere.scale,
+          { x: bounds.width/4, y: bounds.width/4, z: bounds.width/4},
+          { x: bounds.width/5, duration:2, y: bounds.width/5, duration:2, z: bounds.width/5, duration:2},
+
+        ),
+        0 // Start at the same time
+      );
+      
+
+
       return {
         obj: o,
         mesh: sphere,
@@ -303,6 +328,7 @@ export default class Sketch {
     )
   }
   render() {
+
     this.time += 0.05;
 
     this.setPosition()
