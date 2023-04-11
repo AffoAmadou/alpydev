@@ -58,8 +58,7 @@
 
 %description-15 {
   font-size  : 1.5rem;
-  font-weight: 100;
-
+  font-weight: 100;//thin
 }
 
 %description-80 {
@@ -81,6 +80,12 @@
 
 %description-50 {
   font-size  : 5rem;
-  font-weight: 100;
+  font-weight: 100;//thin
   line-height: 6.5rem;
+}
+
+%description-21{
+  font-size  : 2.1rem;
+  font-weight: 300;//light
+  line-height: 3.4rem;
 }
