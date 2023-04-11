@@ -7,37 +7,37 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Card from '../components/projectscard'
 const projects = [
     {
-      id: 1,
-      image: "image1.jpg",
-      tech: "WordPress",
-      year: "2022",
-      title: "Project 1"
+        id: 1,
+        image: "image1.jpg",
+        tech: "WordPress",
+        year: "2022",
+        title: "Project 1"
     },
     {
-      id: 2,
-      image: "image2.jpg",
-      tech: "Shopify",
-      year: "2021",
-      title: "Project 2"
+        id: 2,
+        image: "image2.jpg",
+        tech: "Shopify",
+        year: "2021",
+        title: "Project 2"
     },
     {
-      id: 3,
-      image: "image3.jpg",
-      tech: "Wix",
-      year: "2023",
-      title: "Project 3"
+        id: 3,
+        image: "image3.jpg",
+        tech: "Wix",
+        year: "2023",
+        title: "Project 3"
     },
     {
-      id: 4,
-      image: "image4.jpg",
-      tech: "Squarespace",
-      year: "2020",
-      title: "Project 4"
+        id: 4,
+        image: "image4.jpg",
+        tech: "Squarespace",
+        year: "2020",
+        title: "Project 4"
     }
-  ];
-  
-  const firstTwoProjects = projects.slice(0, 2);
-  const lastTwoProjects = projects.slice(2);
+];
+
+const firstTwoProjects = projects.slice(0, 2);
+const lastTwoProjects = projects.slice(2);
 
 export default function Home({ }) {
 
@@ -79,35 +79,31 @@ export default function Home({ }) {
 
             // Animation for home__projects
             const projectsTl = GSAP.timeline({
-
+                scrollTrigger: {
+                    trigger: '.home__projects',
+                    start: 'top 70%',
+                    end: 'top 30%',
+                }
             });
             projectsTl.fromTo('.home__projects', { backgroundColor: 'white' },
                 {
                     backgroundColor: '#172131',
-                    duration: 2.5,
+                    duration: 2,
                     ease: "expo.inOut",
-                    scrollTrigger: {
-                        trigger: '.home__projects',
-                        start: 'top 70%',
-                        end: 'top 30%',
-                    }
+
                 }).fromTo(['.home__projects__title'],
-                { y: 100, opacity: 0 },
+                { y: 50, opacity: 0 },
                 {
                     y: 0,
                     opacity: 1,
-                    duration: 1.5,
-                    delay: 0.5,
-                    ease: "cubic-bezier(0.77, 0, 0.175, 1)",
-                    scrollTrigger: {
-                        trigger: '.home__projects__title',
-                        start: 'top 70%',
-                        end: 'top 30%',
-                    },
-                });
+                    duration: 1,
+                    delay: 0.8,
+                    ease: "expo.inOut",
+
+                },0);
 
             // Add the showreel and projects timelines to the main timeline
-            tl.add(showreelTl, 0.5).add(projectsTl, 1);
+            // tl.add(showreelTl, 0.5).add(projectsTl, 1);
 
             videoRef.current.play();
         }
@@ -147,7 +143,7 @@ export default function Home({ }) {
                         <h2 className="home__projects__title">Projets sélectionnés</h2>
                         <div className="home__projects__wrapper">
                             <div className="home__projects__container">
-                                
+
                                 {firstTwoProjects.map((project) => (
                                     <Card key={project.id} project={project} />
                                 ))}
