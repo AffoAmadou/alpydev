@@ -282,7 +282,7 @@ export default class Sketch {
       tl.add(
         GSAP.to(sphere.rotation, {
           duration: 2,
-          y: "+=3",
+          y: "-=3",
         }),
         0 // Start at the same time
       );
@@ -291,7 +291,7 @@ export default class Sketch {
       tl.add(
         GSAP.fromTo(
           sphere.scale,
-          { x: bounds.width/4, y: bounds.width/4, z: bounds.width/4},
+          { x: bounds.width/4, y: bounds.width/4, z: bounds.width/3},
           { x: bounds.width/5, duration:2, y: bounds.width/5, duration:2, z: bounds.width/5, duration:2},
 
         ),
@@ -342,7 +342,6 @@ export default class Sketch {
       o.mesh.rotation.y += 0.05 * (this.targetX - o.mesh.rotation.y);
       o.mesh.position.z += -6.5 * (this.targetY - o.mesh.rotation.x);
       o.material.uniforms.time.value = this.time;
-      console.log(o.material.uniforms.time.value)
     })
 
     window.requestAnimationFrame(this.render.bind(this));
