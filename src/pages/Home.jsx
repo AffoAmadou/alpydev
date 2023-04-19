@@ -62,17 +62,18 @@ export default function Home({ }) {
                 });
 
             // Animation for showreel
+            //animation should start from the top of the showreel and not the center
             const showreelTl = GSAP.timeline({
                 scrollTrigger: {
                     trigger: '.home__showreel',
                     start: 'top 80%',
                     end: 'top 30%',
-                    scrub: 1,
                 }
             });
-            showreelTl.fromTo('.home__showreel', { scale: 0.5 },
+            showreelTl.from('.home__showreel',
                 {
-                    scale: 1,
+                    transformOrigin: 'top',
+                    scaleY: 0,
                     duration: 1.5,
                     ease: "cubic-bezier(0.77, 0, 0.175, 1)"
                 });
@@ -98,7 +99,7 @@ export default function Home({ }) {
                     opacity: 1,
                     duration: 1,
                     delay: 0.8,
-                    ease: "expo.inOut",
+                    ease: "ease.inOut",
 
                 },0);
 
@@ -128,9 +129,11 @@ export default function Home({ }) {
                         </div>
                     </div>
                     <div className="home__showreel__container">
+                        <div className="home__showreel__wrapper">
                         <video ref={videoRef} className='home__showreel' autoPlay muted loop>
                             <source src={vide} type='video/mp4' />
                         </video>
+                        </div>
                     </div>
                     <div className="home__aim">
                         <p className="home__aim__text">

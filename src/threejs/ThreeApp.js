@@ -280,9 +280,9 @@ export default class Sketch {
 
       // Animate rotation
       tl.add(
-        GSAP.to(sphere.rotation, {
+        GSAP.from(sphere.rotation, {
           duration: 2,
-          y: "-=3",
+          y: "+=3",
         }),
         0 // Start at the same time
       );
