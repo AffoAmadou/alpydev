@@ -5,6 +5,8 @@ import GSAP from 'gsap'
 import vide from '../assets/show.mp4'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Card from '../components/projectscard'
+import Lenis from '@studio-freight/lenis'
+import Prefix from 'prefix'
 const projects = [
     {
         id: 1,
@@ -39,10 +41,25 @@ const projects = [
 const firstTwoProjects = projects.slice(0, 2);
 const lastTwoProjects = projects.slice(2);
 
-export default function Home({ }) {
+export default function Home({ lenis }) {
+
+    console.log(lenis, "home")
+    let prefix = Prefix('transform');
+    console.log(prefix, "prefix")
+
+    const cartesRef = useRef(null);
+    const cartesContainerRef = useRef(null);
+    const section2Ref = useRef(null);
+
+
 
     const videoRef = useRef(null);
     useEffect(() => {
+
+        const carteWidth = cartesRef.current.querySelector('.home__projects__card').offsetWidth;
+        const cartesLength = cartesRef.current.querySelectorAll('.home__projects__card').length;
+        const cartesContainerWidth = cartesContainerRef.current.offsetWidth;
+
         if (videoRef.current) {
             GSAP.registerPlugin(ScrollTrigger);
 
@@ -57,7 +74,7 @@ export default function Home({ }) {
                     opacity: 1,
                     duration: 1,
                     delay: 0.5,
-                    ease: "cubic-bezier(0.77, 0, 0.175, 1)",
+                    ease: "ease.inOut",
                     stagger: 0.2
                 });
 
@@ -75,10 +92,10 @@ export default function Home({ }) {
                     transformOrigin: 'top',
                     scaleY: 0,
                     duration: 1.5,
-                    ease: "cubic-bezier(0.77, 0, 0.175, 1)"
+                    ease: "ease.inOut"
                 });
 
-            // Animation for home__projects
+            // // Animation for home__projects
             const projectsTl = GSAP.timeline({
                 scrollTrigger: {
                     trigger: '.home__projects',
@@ -86,25 +103,30 @@ export default function Home({ }) {
                     end: 'top 30%',
                 }
             });
-            projectsTl.fromTo('.home__projects', { backgroundColor: 'white' },
+            projectsTl.from('.home__projects',
                 {
-                    backgroundColor: '#172131',
-                    duration: 2,
-                    ease: "expo.inOut",
-
-                }).fromTo(['.home__projects__title'],
-                { y: 50, opacity: 0 },
-                {
-                    y: 0,
-                    opacity: 1,
+                    backgroundColor: 'white',
                     duration: 1,
-                    delay: 0.8,
                     ease: "ease.inOut",
 
-                },0);
+                });
 
+            GSAP.set(cartesRef.current, {
+                x: cartesContainerWidth / 2 - carteWidth / 2,
+            });
+
+            GSAP.to(cartesRef.current, {
+                x: () => -((carteWidth * (cartesLength - 1)) - (cartesContainerWidth / 2) + (carteWidth / 2)),
+                scrollTrigger: {
+                    trigger: section2Ref.current,
+                    start: 'top top',
+                    end: 'bottom top',
+                    scrub: 1,
+                    pin: true,
+                },
+            });
             // Add the showreel and projects timelines to the main timeline
-            // tl.add(showreelTl, 0.5).add(projectsTl, 1);
+            tl.add(showreelTl, 0.5).add(projectsTl, 1);
 
             videoRef.current.play();
         }
@@ -130,9 +152,9 @@ export default function Home({ }) {
                     </div>
                     <div className="home__showreel__container">
                         <div className="home__showreel__wrapper">
-                        <video ref={videoRef} className='home__showreel' autoPlay muted loop>
-                            <source src={vide} type='video/mp4' />
-                        </video>
+                            <video ref={videoRef} className='home__showreel' autoPlay muted loop>
+                                <source src={vide} type='video/mp4' />
+                            </video>
                         </div>
                     </div>
                     <div className="home__aim">
@@ -142,21 +164,18 @@ export default function Home({ }) {
                             mieux adaptés à leurs besoins.
                         </p>
                     </div>
-                    <div className="home__projects">
-                        <h2 className="home__projects__title">Projets sélectionnés</h2>
-                        <div className="home__projects__wrapper">
-                            <div className="home__projects__container">
-
-                                {firstTwoProjects.map((project) => (
-                                    <Card key={project.id} project={project} />
-                                ))}
-                            </div>
-                            <div className="home__projects__container">
-                                {lastTwoProjects.map((project) => (
+                    <div className="home__projects" ref={section2Ref} >
+                        <div className="home__projects__container" ref={cartesContainerRef} >
+                            <div class="home__project__cards" ref={cartesRef}>
+                                {projects.map((project) => (
                                     <Card key={project.id} project={project} />
                                 ))}
                             </div>
                         </div>
+
+                    </div>
+                    <div className="home__t">
+                        <h1>sdjkvndsvndsi</h1>
                     </div>
                 </div>
             </div>

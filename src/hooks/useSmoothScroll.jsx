@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 import Lenis from "@studio-freight/lenis";
 
 export const useSmoothScroll = () => {
@@ -6,7 +7,7 @@ export const useSmoothScroll = () => {
     duration: 1.9,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     orientation: "vertical",
-    gestureOrientation: "vertical",
+    gestureOrientation: "both",
     smoothWheel: true,
   });
   useEffect(() => {
@@ -17,4 +18,9 @@ export const useSmoothScroll = () => {
 
     requestAnimationFrame(raf);
   }, []);
+
+  return lenis;
 };
+
+
+

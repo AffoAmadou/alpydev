@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-import { Route, Routes } from "react-router-dom";
+import { useState, useEffect, useRef } from 'react'
+import { Route, Routes, useActionData } from "react-router-dom";
 import { useSmoothScroll } from './hooks/useSmoothScroll';
 import ReactDOM from 'react-dom';
 import * as THREE from "three";
@@ -11,16 +11,19 @@ import ThreeApp from './threejs/ThreeApp'
 
 
 export default function App() {
-  useSmoothScroll();
-   //The argument for useThree is your threejs main class
-   const canvas = useThree(ThreeApp);
-   
+  let lenis = useSmoothScroll();
+
+  console.log(lenis)
+ 
+  //The argument for useThree is your threejs main class
+  const canvas = useThree(ThreeApp);
+
 
   return (
     <>
       <section className="containerRef" data-scroll-container>
         <Routes>
-          <Route path="/" element={<Home template="home" />} ></Route>
+          <Route path="/" element={<Home template="home"  lenis={lenis} />} ></Route>
           <Route path="portfolio" element={<Portfolio />}></Route>
         </Routes>
 

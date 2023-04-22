@@ -40,17 +40,18 @@
 }
 
 .home__showreel__container {
-  width           : 100%;
-  height          : 99.4rem;
+  width : 100%;
+  height: 99.4rem;
 
-  display: flex;
-  justify-content: center;  
+  display        : flex;
+  justify-content: center;
 }
-.home__showreel__wrapper{
+
+.home__showreel__wrapper {
   width           : 90%;
   height          : 90%;
-  display    : grid;
-  place-items: center;
+  display         : grid;
+  place-items     : center;
   background-color: #EFF3F5;
 }
 
@@ -76,89 +77,31 @@
   width: 73.5rem;
 }
 
+
+
+
+
 .home__projects {
-  width           : 100vw;
-  height          : 176.9rem;
+  height          : 100vh;
   background-color: $color-blue;
-
-  padding: 6.8rem 14rem;
-}
-
-.home__projects__title {
-  @extend %title-41;
-}
-
-.home__projects__wrapper {
-  width : 164rem;
-  height: 127.5rem;
-  margin: 12.5rem 0;
-
-  display        : flex;
-  justify-content: space-between;
-
 }
 
 .home__projects__container {
-  width : 67.4rem;
-  height: 108.5rem;
-
-  //select the second child
-
-  &:nth-child(2) {
-    align-self: flex-end;
-  }
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  height     : 100%;
+  display    : flex;
+  align-items: center;
+  overflow   : hidden;
 }
 
-.home__projects__card {
-  color: white;
+.home__project__cards {
+  position : sticky;
+  top      : 50%;
+  transform: translateY(-50%);
+  display  : flex;
+  gap      : 9.5rem;
+  width    : fit-content;
 }
 
-.home__projects__index {
-  @extend %description-21;
-  margin-bottom: 1.55rem;
-}
-
-.home__projects__media {
-  width        : 67.4rem;
-  height       : 37.955rem;
-  margin-bottom: 1.5rem;
-   
-  position: relative;
-}
-
-.home__projects__media__image {
-  width : 100%;
-  height: 100%;
-  object-fit: cover;
-
-  position: absolute;
-  top     : 0;
-  left    : 0;
-}
-
-hr {
-  border       : solid .1rem $color-orange;
-  margin-bottom: 1.5rem;
-}
-
-.home__projects__content {
-  height          : 5.8rem;
-  display         : flex;
-  flex-direction  : column;
-  justify-content : space-between;
-}
-
-.home__projects__details {
-  display        : flex;
-  justify-content: space-between;
-  @extend %description-15;
-}
-
-.home__projects__content__title {
-  text-transform: uppercase;
-  @extend %description-21;
+.home__t {
+  height: 100vh;
 }

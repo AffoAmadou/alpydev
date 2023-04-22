@@ -1,0 +1,50 @@
+.home__projects__card {
+    color: white;
+  }
+  
+  .home__projects__index {
+    @extend %description-21;
+    margin-bottom: 1.55rem;
+  }
+  
+  .home__projects__media {
+    width        : 67.4rem;
+    height       : 37.955rem;
+    margin-bottom: 1.5rem;
+  
+    position: relative;
+  }
+  
+  .home__projects__media__image {
+    width     : 100%;
+    height    : 100%;
+    object-fit: cover;
+  
+    position: absolute;
+    top     : 0;
+    left    : 0;
+  }
+  
+  hr {
+    border       : solid .1rem $color-orange;
+    margin-bottom: 1.5rem;
+  }
+  
+  .home__projects__content {
+    height         : 5.8rem;
+    display        : flex;
+    flex-direction : column;
+    justify-content: space-between;
+  }
+  
+  .home__projects__details {
+    display        : flex;
+    justify-content: space-between;
+    @extend %description-15;
+  }
+  
+  .home__projects__content__title {
+    text-transform: uppercase;
+    @extend %description-21;
+  }
+  

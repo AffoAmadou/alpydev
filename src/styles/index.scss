@@ -29,7 +29,7 @@
 // //------------------------- C O M P O N E N T S ----------------------------------
 // // ----------------------------------- // ------------------------------------------
 
-// // @import './components/preloader';
+@import './components/projectsCard';
  @import './layout/navigation';
  @import './pages/home/home';
 // // // @import './pages/about/about';
@@ -40,4 +40,7 @@
 
 
 
- 
+ .containerRef{
+    width: 100%;
+    height: 100%;
+ }
