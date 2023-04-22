@@ -103,13 +103,14 @@ export default function Home({ }) {
                 end: 'top 30%',
             }
         });
-        projectsTl.from('.home__projects',
-            {
-                backgroundColor: 'white',
-                duration: 1,
-                ease: "ease.inOut",
+        // projectsTl.from('.home__projects',
+        //     {
+        //         backgroundColor: 'white',
+        //         duration: 1,
+        //         ease: "ease.inOut",
 
-            });
+        //     }
+        // );
 
         GSAP.set(cartesRef.current, {
             x: cartesContainerWidth / 2 - carteWidth / 2,
@@ -151,12 +152,7 @@ export default function Home({ }) {
                                 entreprises.
                             </p>
                         </div>
-
                         <Link to='/apropos'><Svgcircle /></Link>
-
-
-
-
                     </div>
 
                     <div className="home__showreel__container">

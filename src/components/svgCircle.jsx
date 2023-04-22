@@ -6,9 +6,9 @@ export default function svgCircle() {
     const textRef = useRef(null);
 
     useEffect(() => {
-        const tl = GSAP.timeline({ defaults: { duration: 2, ease: 'power2.out' } });
+        const tl = GSAP.timeline({ defaults: { duration: 1, ease: "ease.inOut",  } });
 
-        tl.from(svgRef.current, { y: '2rem', opacity: 0 });
+        tl.from(svgRef.current, { y: '-6rem', opacity: 0 });
         GSAP.to(svgRef.current, {
             duration: 4,
             rotation: 360,
@@ -29,7 +29,7 @@ export default function svgCircle() {
                 className="home__header__svg"
                 ref={svgRef}
             >
-                <circle cx="100" cy="100" r="60" fill="none" stroke="#317A77" strokeWidth="4" />
+                <circle cx="100" cy="100" r="60" fill="none" stroke="#317A77" strokeWidth="1" />
 
                 <path
                     id="cheminCercle"
