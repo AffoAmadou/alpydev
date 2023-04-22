@@ -12,8 +12,6 @@ import ThreeApp from './threejs/ThreeApp'
 
 export default function App() {
   let lenis = useSmoothScroll();
-
-  console.log(lenis)
  
   //The argument for useThree is your threejs main class
   const canvas = useThree(ThreeApp);
@@ -23,7 +21,7 @@ export default function App() {
     <>
       <section className="containerRef" data-scroll-container>
         <Routes>
-          <Route path="/" element={<Home template="home"  lenis={lenis} />} ></Route>
+          <Route path="/" element={<Home template="home"   />} ></Route>
           <Route path="portfolio" element={<Portfolio />}></Route>
         </Routes>
 
