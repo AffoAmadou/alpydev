@@ -108,7 +108,7 @@
 
 .home__projects {
   height          : 100vh;
-  background-color: $color-blue;
+  // background-color: $color-blue;
 }
 
 .home__projects__container {
@@ -129,4 +129,15 @@
 
 .home__t {
   height: 100vh;
+}
+
+
+.home__section__color{
+  background-color: black;
+}
+
+.home__selected__project{
+  font-weight: bold;
+  color:white;
+  font-size: 30rem;
 }

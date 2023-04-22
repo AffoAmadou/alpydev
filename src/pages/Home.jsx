@@ -49,6 +49,8 @@ export default function Home({ }) {
     const section2Ref = useRef(null);
     const videoRef = useRef(null);
     const line = useRef(null);
+    const color = useRef(null);
+    const colorTextRef = useRef(null);
 
     useEffect(() => {
 
@@ -131,6 +133,26 @@ export default function Home({ }) {
 
         videoRef.current.play();
 
+        const colorTl = GSAP.timeline({
+            scrollTrigger: {
+                trigger: color.current,
+                start: 'top 60%', // changez cette ligne
+                end: 'bottom 50%',
+                duration: 1.5,
+                ease: "ease.inOut",
+            }
+        });
+        colorTl.from(color.current,
+            {
+                backgroundColor: 'white',
+            }
+        ).from(colorTextRef.current,
+            {
+                y: 100,
+                opacity: 0,
+                delay: 0.5,
+            });
+
     }, []);
 
     return (
@@ -169,17 +191,22 @@ export default function Home({ }) {
                             mieux adaptés à leurs besoins.
                         </p>
                     </div>
-                    <div className="home__projects" ref={section2Ref} >
-                        <div className="home__projects__container" ref={cartesContainerRef} >
-                            <div className="home__project__cards" ref={cartesRef}>
-                                {projects.map((project) => (
-                                    <Card key={project.id} project={project} />
-                                ))}
+
+                    <div className="home__section__color" ref={color}>
+
+                        <h2 className="home__selected__project" ref={colorTextRef}>Projets sélectionnés</h2>
+                        <div className="home__projects" ref={section2Ref} >
+                            <div className="home__projects__container" ref={cartesContainerRef} >
+                                <div className="home__project__cards" ref={cartesRef}>
+                                    {projects.map((project) => (
+                                        <Card key={project.id} project={project} />
+                                    ))}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="home__t">
-                        <h1>sdjkvndsvndsi</h1>
+                        <div className="home__t">
+                            <h1>sdjkvndsvndsi</h1>
+                        </div>
                     </div>
                 </div>
             </div>
