@@ -138,11 +138,24 @@ export default function Home({ }) {
                 backgroundColor: 'white',
 
             }
-        ).from(colorTextRef.current,
-            {
-                y: 100,
-                opacity: 0,
-            });
+        ).from(colorTextRef.current, {
+            opacity: 0,
+        });
+
+        GSAP.to(colorTextRef.current, {
+            scale: 0.7,
+            y: -50, // Ajoutez cette ligne pour déplacer le texte vers le haut
+            transformOrigin: "center center",
+            ease: "ease.inOut",
+            scrollTrigger: {
+                trigger: colorTextRef.current,
+                start: "top 40%",
+                end: "bottom 30%",
+                scrub: true,
+                markers: true,
+                // pin: true,
+            },
+        });
 
     }, []);
 
@@ -184,8 +197,11 @@ export default function Home({ }) {
                     </div>
 
                     <div className="home__section__color" ref={colorref}>
+                        <div className="home__selected__project__container">
 
-                        <h2 className="home__selected__project" ref={colorTextRef}>Projets sélectionnés</h2>
+                            <h2 className="home__selected__project" ref={colorTextRef}><span> Études </span>
+                                cas clients</h2>
+                        </div>
                         <div className="home__projects" ref={section2Ref} >
                             <div className="home__projects__container" ref={cartesContainerRef} >
                                 <div className="home__project__cards" ref={cartesRef}>

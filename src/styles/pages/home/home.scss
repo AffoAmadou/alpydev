@@ -15,15 +15,15 @@
   width   : 100%;
   height  : 94rem;
   position: relative;
- 
+
 }
 
-.home__line{
-  width   : .1rem;
-  height  : 100%;
-  position: absolute;
-  background-color: #317A77;  
-  top: 0%;
+.home__line {
+  width           : .1rem;
+  height          : 100%;
+  position        : absolute;
+  background-color: #317A77;
+  top             : 0%;
 
   //first child
   &:first-child {
@@ -60,7 +60,7 @@
   top     : 86.3rem;
   left    : 2rem;
 
-  
+
 }
 
 
@@ -107,7 +107,7 @@
 
 
 .home__projects {
-  height          : 100vh;
+  height             : 100vh;
   // background-color: $color-blue;
 }
 
@@ -128,16 +128,37 @@
 }
 
 .home__t {
-  height: 100vh;
+  height          : 100vh;
+  background-color: #EFF3F5;
 }
 
 
-.home__section__color{
+.home__section__color {
+  overflow        : auto;
   background-color: black;
 }
 
-.home__selected__project{
-  font-weight: bold;
-  color:white;
-  font-size: 30rem;
+.home__selected__project__container {
+  margin-top     : 45rem;
+  height         : 50vh;
+  width          : 100%;
+  display        : flex;
+  justify-content: center;
+}
+
+.home__selected__project {
+  font-weight: 600;
+  color      : white;
+  font-size  : 30rem;
+  font-style : italic;
+  width      : 148.2rem;
+  height     : 68.2rem;
+  line-height: 30rem;
+
+  span {
+    font-size     : 36.3rem;
+    text-transform: uppercase;
+    font-style    : normal;
+  }
+
 }
