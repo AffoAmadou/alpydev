@@ -1,59 +1,62 @@
-@font-face {
-    font-family: $font-archivo;
-    src        : url('/fonts/Archivo-Medium.woff2') format('woff2'),
-        url('/fonts/Archivo-Medium.woff') format('woff'),
-        url('/fonts/Archivo-Medium.ttf') format('truetype');
-    font-weight : 500;
-    font-style  : normal;
-    font-display: swap;
-}
+// @font-face {
+//     font-family: $font-archivo;
+//     src        : url('/fonts/Archivo-Medium.woff2') format('woff2'),
+//         url('/fonts/Archivo-Medium.woff') format('woff'),
+//         url('/fonts/Archivo-Medium.ttf') format('truetype');
+//     font-weight : 500;
+//     font-style  : normal;
+//     font-display: swap;
+// }
 
-@font-face {
-    font-family: $font-archivo;
-    src        : url('/fonts/Archivo-Regular.woff2') format('woff2'),
-        url('/fonts/Archivo-Regular.woff') format('woff'),
-        url('/fonts/Archivo-Regular.ttf') format('truetype');
-    font-weight : normal;
-    font-style  : normal;
-    font-display: swap;
-}
+// @font-face {
+//     font-family: $font-archivo;
+//     src        : url('/fonts/Archivo-Regular.woff2') format('woff2'),
+//         url('/fonts/Archivo-Regular.woff') format('woff'),
+//         url('/fonts/Archivo-Regular.ttf') format('truetype');
+//     font-weight : normal;
+//     font-style  : normal;
+//     font-display: swap;
+// }
 
-@font-face {
-    font-family: $font-archivo;
-    src        : url('/fonts/Archivo-Bold.woff2') format('woff2'),
-        url('/fonts/Archivo-Bold.woff') format('woff'),
-        url('/fonts/Archivo-Bold.ttf') format('truetype');
-    font-weight : bold;
-    font-style  : normal;
-    font-display: swap;
-}
+// @font-face {
+//     font-family: $font-archivo;
+//     src        : url('/fonts/Archivo-Bold.woff2') format('woff2'),
+//         url('/fonts/Archivo-Bold.woff') format('woff'),
+//         url('/fonts/Archivo-Bold.ttf') format('truetype');
+//     font-weight : bold;
+//     font-style  : normal;
+//     font-display: swap;
+// }
 
-@font-face {
-    font-family: $font-archivo;
-    src        : url('/fonts/Archivo-SemiBold.woff2') format('woff2'),
-        url('/fonts/Archivo-SemiBold.woff') format('woff'),
-        url('/fonts/Archivo-SemiBold.ttf') format('truetype');
-    font-weight : 600;
-    font-style  : normal;
-    font-display: swap;
-}
+// @font-face {
+//     font-family: $font-archivo;
+//     src        : url('/fonts/Archivo-SemiBold.woff2') format('woff2'),
+//         url('/fonts/Archivo-SemiBold.woff') format('woff'),
+//         url('/fonts/Archivo-SemiBold.ttf') format('truetype');
+//     font-weight : 600;
+//     font-style  : normal;
+//     font-display: swap;
+// }
 
-@font-face {
-    font-family: $font-archivo;
-    src        : url('/fonts/Archivo-Light.woff2') format('woff2'),
-        url('/fonts/Archivo-Light.woff') format('woff'),
-        url('/fonts/Archivo-Light.ttf') format('truetype');
-    font-weight : 300;
-    font-style  : normal;
-    font-display: swap;
-}
+// @font-face {
+//     font-family: $font-archivo;
+//     src        : url('/fonts/Archivo-Light.woff2') format('woff2'),
+//         url('/fonts/Archivo-Light.woff') format('woff'),
+//         url('/fonts/Archivo-Light.ttf') format('truetype');
+//     font-weight : 300;
+//     font-style  : normal;
+//     font-display: swap;
+// }
 
-@font-face {
-    font-family: 'Archivo';
-    src        : url('/fonts/Archivo-Thin.woff2') format('woff2'),
-        url('/fonts/Archivo-Thin.woff') format('woff'),
-        url('/fonts/Archivo-Thin.ttf') format('truetype');
-    font-weight : 100;
-    font-style  : normal;
-    font-display: swap;
-}
+// @font-face {
+//     font-family: 'Archivo';
+//     src        : url('/fonts/Archivo-Thin.woff2') format('woff2'),
+//         url('/fonts/Archivo-Thin.woff') format('woff'),
+//         url('/fonts/Archivo-Thin.ttf') format('truetype');
+//     font-weight : 100;
+//     font-style  : normal;
+//     font-display: swap;
+// }
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@100;300;400;500;600;700&display=swap');
