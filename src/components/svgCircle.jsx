@@ -10,7 +10,7 @@ export default function svgCircle() {
 
         tl.from(svgRef.current, { y: '-6rem', opacity: 0 });
         GSAP.to(svgRef.current, {
-            duration: 4,
+            duration: 6,
             rotation: 360,
             repeat: -1,
             ease: 'linear',
@@ -39,12 +39,12 @@ export default function svgCircle() {
                 />
 
                 <text
-                    style={{ stroke: '#000000', fontSize: '3rem', textTransform: 'uppercase' }}
+                    style={{ stroke: '#000000', fontSize: '1.86rem', textTransform: 'uppercase' }}
                     fill="black"
                     strokeWidth="0"
                 >
                     <textPath xlinkHref="#cheminCercle" startOffset="0%" ref={textRef}>
-                        <tspan dy="-2">Contactez nous !</tspan>
+                        <tspan dy="-2">Contactez nous * Contactez nous * Contactez nous * </tspan>
                     </textPath>
                 </text>
             </svg>

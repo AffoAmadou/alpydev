@@ -49,7 +49,7 @@ export default function Home({ }) {
     const section2Ref = useRef(null);
     const videoRef = useRef(null);
     const line = useRef(null);
-    const color = useRef(null);
+    const colorref = useRef(null);
     const colorTextRef = useRef(null);
 
     useEffect(() => {
@@ -86,7 +86,6 @@ export default function Home({ }) {
         const showreelTl = GSAP.timeline({
             scrollTrigger: {
                 trigger: '.home__showreel',
-                markers: true,
             }
         });
         showreelTl.from('.home__showreel',
@@ -105,14 +104,7 @@ export default function Home({ }) {
                 end: 'top 30%',
             }
         });
-        // projectsTl.from('.home__projects',
-        //     {
-        //         backgroundColor: 'white',
-        //         duration: 1,
-        //         ease: "ease.inOut",
 
-        //     }
-        // );
 
         GSAP.set(cartesRef.current, {
             x: cartesContainerWidth / 2 - carteWidth / 2,
@@ -123,7 +115,6 @@ export default function Home({ }) {
             scrollTrigger: {
                 trigger: section2Ref.current,
                 start: 'top top',
-                end: 'bottom top',
                 scrub: 1,
                 pin: true,
             },
@@ -135,22 +126,22 @@ export default function Home({ }) {
 
         const colorTl = GSAP.timeline({
             scrollTrigger: {
-                trigger: color.current,
-                start: 'top 60%', // changez cette ligne
+                trigger: colorref.current,
+                start: '10% 80%', // changez cette ligne
                 end: 'bottom 50%',
                 duration: 1.5,
                 ease: "ease.inOut",
             }
         });
-        colorTl.from(color.current,
+        colorTl.from(colorref.current,
             {
                 backgroundColor: 'white',
+
             }
         ).from(colorTextRef.current,
             {
                 y: 100,
                 opacity: 0,
-                delay: 0.5,
             });
 
     }, []);
@@ -192,7 +183,7 @@ export default function Home({ }) {
                         </p>
                     </div>
 
-                    <div className="home__section__color" ref={color}>
+                    <div className="home__section__color" ref={colorref}>
 
                         <h2 className="home__selected__project" ref={colorTextRef}>Projets sélectionnés</h2>
                         <div className="home__projects" ref={section2Ref} >
