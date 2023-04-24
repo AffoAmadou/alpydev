@@ -175,6 +175,17 @@ export default class Sketch {
       i.height = bounds.height;
     })
 
+    this.planebounds.forEach(i => {
+      let bounds = i.obj.getBoundingClientRect();
+      console.log(bounds);
+      i.mesh.scale.x = bounds.width;
+      i.mesh.scale.y = bounds.height;
+      i.top = bounds.top;
+      i.left = bounds.left;
+      i.width = bounds.width;
+      i.height = bounds.height;
+    })
+
     this.setPosition();
 
   }
@@ -248,7 +259,45 @@ export default class Sketch {
 
     // const normaltexture = this.textureLoader.load(dots);
 
+    this.netSelector = [...document.querySelectorAll(".home__three__net")];
+    this.planebounds = this.netSelector.map(o => {
+      let bounds = o.getBoundingClientRect();
+      const geometry = new THREE.PlaneGeometry(1, 1, 60, 60);
 
+      const material = new THREE.ShaderMaterial({
+        uniforms: {
+          time: { value: 1.0 },
+        },
+        vertexShader: shader.vertex,
+        fragmentShader: shader.fragment,
+        wireframe: true,
+      })
+
+      const plane = new THREE.Mesh(geometry, material);
+      this.scene1.add(plane);
+
+      GSAP.from(plane, {
+        duration: 1,
+        delay: 0.5,
+        scrollTrigger: {
+          trigger: o,
+          start: "top 80%",
+          end: "bottom 50%",
+        },
+        autoAlpha: 0,
+        ease: "power2.out",
+      });
+
+      return {
+        obj: o,
+        mesh: plane,
+        top: bounds.top,
+        left: bounds.left,
+        width: bounds.width,
+        height: bounds.height,
+        material: material
+      }
+    })
 
     //ADD SPHERE
     this.selector = [...document.querySelectorAll(".home__header__content")];
@@ -286,18 +335,18 @@ export default class Sketch {
         }),
         0 // Start at the same time
       );
-      
+
       // Animate scale from double to normal size
       tl.add(
         GSAP.fromTo(
           sphere.scale,
-          { x: bounds.width/4, y: bounds.width/4, z: bounds.width/3},
-          { x: bounds.width/5, duration:2, y: bounds.width/5, duration:2, z: bounds.width/5, duration:2},
+          { x: bounds.width / 4, y: bounds.width / 4, z: bounds.width / 3 },
+          { x: bounds.width / 5, duration: 2, y: bounds.width / 5, duration: 2, z: bounds.width / 5, duration: 2 },
 
         ),
         0 // Start at the same time
       );
-      
+
 
 
       return {
@@ -311,7 +360,6 @@ export default class Sketch {
       }
     })
 
-
   }
 
 
@@ -322,6 +370,12 @@ export default class Sketch {
     // })
 
     this.spherebounds.forEach(o => {
+      o.mesh.position.y = this.currentScroll - o.top + this.height / 2 - o.height / 2;
+      o.mesh.position.x = o.left - this.width / 2 + o.width / 2;
+    }
+    )
+
+    this.planebounds.forEach(o => {
       o.mesh.position.y = this.currentScroll - o.top + this.height / 2 - o.height / 2;
       o.mesh.position.x = o.left - this.width / 2 + o.width / 2;
     }
@@ -343,6 +397,16 @@ export default class Sketch {
       o.mesh.position.z += -6.5 * (this.targetY - o.mesh.rotation.x);
       o.material.uniforms.time.value = this.time;
     })
+
+    this.planebounds.forEach(o => {
+      // o.mesh.rotation.y = this.time * 0.05;
+      // o.mesh.rotation.x += 0.05 * (this.targetY - o.mesh.rotation.x);
+      // o.mesh.rotation.y += 0.05 * (this.targetX - o.mesh.rotation.y);
+      // o.mesh.position.z += -6.5 * (this.targetY - o.mesh.rotation.x);
+      o.material.uniforms.time.value = this.time; 
+
+    })
+
 
     window.requestAnimationFrame(this.render.bind(this));
     // this.renderer.render(this.scene, this.camera);

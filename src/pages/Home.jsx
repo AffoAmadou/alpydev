@@ -49,6 +49,9 @@ export default function Home({ }) {
     const colorref = useRef(null);
     const colorTextRef = useRef(null);
     const aimref = useRef(null);
+    const aimref2 = useRef(null);
+    const aimref3 = useRef(null);
+    const aimref4 = useRef(null);
 
 
     useEffect(() => {
@@ -126,18 +129,21 @@ export default function Home({ }) {
         const colorTl = GSAP.timeline({
             scrollTrigger: {
                 trigger: colorref.current,
-                start: '10% 80%', // changez cette ligne
-                end: 'bottom 50%',
-                duration: 1.5,
-                ease: "ease.inOut",
-            }
+                start: '10% 90%',
+                onEnter: () => colorTl.play(),
+                onLeaveBack: () => colorTl.reverse(),
+            },
         });
-        colorTl.from(colorref.current,
-            {
-                backgroundColor: 'white',
 
-            }
-        );
+        const body = document.querySelector('body');
+        colorTl.to(body, {
+            backgroundColor: 'black',
+            duration: 1,
+            ease: 'ease.inOut',
+        });
+
+
+
 
         GSAP.to(colorTextRef.current, {
             scale: 0.7,
@@ -163,11 +169,47 @@ export default function Home({ }) {
                 trigger: aimref.current,
                 start: 'top 80%',
                 end: 'bottom 50%',
-                scrub: true,
-             
             },
         });
 
+        GSAP.from(aimref2.current, {
+            opacity: 0,
+            y: 100,
+            duration: 1.5,
+            ease: "ease.inOut",
+            scrollTrigger: {
+                trigger: aimref2.current,
+                start: 'top 80%',
+                end: 'bottom 50%',
+
+            },
+        });
+
+        // GSAP.from(aimref3.current, {
+        //     opacity: 0,
+        //     y: 100,
+        //     duration: 1.5,
+        //     ease: "ease.inOut",
+        //     scrollTrigger: {
+        //         trigger: aimref3.current,
+        //         start: 'top 80%',
+        //         end: 'bottom 50%',
+
+        //     },
+        // });
+        
+        GSAP.from(aimref4.current, {
+            opacity: 0,
+            y: 100,
+            duration: 1.5,
+            ease: "ease.inOut",
+            scrollTrigger: {
+                trigger: aimref4.current,
+                start: 'top 80%',
+                end: 'bottom 50%',
+
+            },
+        });
 
     }, []);
 
@@ -214,13 +256,15 @@ export default function Home({ }) {
                                 cas clients</h2>
                         </div>
 
-                        <div className="home__aim">
-                            <p className="home__aim__text second" ref={aimref}>
-                                Nous aidons les entreprises en leur
-                                fournissant les outils du web les
-                                mieux adaptés à leurs besoins.
+                        <div className="home__sentence__wrapper">
+                            <p className="home__first__sentence" ref={aimref2}>
+                                Nous prenons en charge chaque client de manière personnalisée en comprenant ses besoins et en évaluant ses objectifs à court et à long terme.
                             </p>
+
+                            <div className="home__three__net" ref={aimref3}></div>
+                            <p className='home__second__sentence' ref={aimref4}>Nous travaillons en étroite collaboration avec nos clients pour créer une stratégie web qui leur convient le mieux.</p>
                         </div>
+
 
                         <div className="home__projects" ref={section2Ref} >
                             <div className="home__projects__container" ref={cartesContainerRef} >
