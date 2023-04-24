@@ -41,9 +41,6 @@ const projects = [
 
 
 export default function Home({ }) {
-
-
-
     const cartesRef = useRef(null);
     const cartesContainerRef = useRef(null);
     const section2Ref = useRef(null);
@@ -51,6 +48,8 @@ export default function Home({ }) {
     const line = useRef(null);
     const colorref = useRef(null);
     const colorTextRef = useRef(null);
+    const aimref = useRef(null);
+
 
     useEffect(() => {
 
@@ -138,9 +137,7 @@ export default function Home({ }) {
                 backgroundColor: 'white',
 
             }
-        ).from(colorTextRef.current, {
-            opacity: 0,
-        });
+        );
 
         GSAP.to(colorTextRef.current, {
             scale: 0.7,
@@ -156,6 +153,21 @@ export default function Home({ }) {
                 // pin: true,
             },
         });
+
+        GSAP.from(aimref.current, {
+            opacity: 0,
+            y: 100,
+            duration: 1.5,
+            ease: "ease.inOut",
+            scrollTrigger: {
+                trigger: aimref.current,
+                start: 'top 80%',
+                end: 'bottom 50%',
+                scrub: true,
+             
+            },
+        });
+
 
     }, []);
 
@@ -189,7 +201,7 @@ export default function Home({ }) {
                         </div>
                     </div>
                     <div className="home__aim">
-                        <p className="home__aim__text">
+                        <p className="home__aim__text" ref={aimref}>
                             Nous aidons les entreprises en leur
                             fournissant les outils du web les
                             mieux adaptés à leurs besoins.
@@ -198,10 +210,18 @@ export default function Home({ }) {
 
                     <div className="home__section__color" ref={colorref}>
                         <div className="home__selected__project__container">
-
                             <h2 className="home__selected__project" ref={colorTextRef}><span> Études </span>
                                 cas clients</h2>
                         </div>
+
+                        <div className="home__aim">
+                            <p className="home__aim__text second" ref={aimref}>
+                                Nous aidons les entreprises en leur
+                                fournissant les outils du web les
+                                mieux adaptés à leurs besoins.
+                            </p>
+                        </div>
+
                         <div className="home__projects" ref={section2Ref} >
                             <div className="home__projects__container" ref={cartesContainerRef} >
                                 <div className="home__project__cards" ref={cartesRef}>
