@@ -30,8 +30,9 @@ void main() {
 
     vec3 color1 = vec3(0.19, 0.48, 0.47);
     vec3 color2 = vec3(1, 0.7098, 0.298);
+    vec3 color_rgb = vec3(0.933, 0.894, 0.671);
     vec3 mixColor = mix(color1, color2, vUv.x);
 
-    gl_FragColor = vec4(color1, 1.0);
+    gl_FragColor = vec4(color_rgb, 1.0);
 }
 `;

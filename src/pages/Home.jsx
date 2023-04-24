@@ -137,7 +137,7 @@ export default function Home({ }) {
 
         const body = document.querySelector('body');
         colorTl.to(body, {
-            backgroundColor: 'black',
+            backgroundColor: '#317A77',
             duration: 1,
             ease: 'ease.inOut',
         });
@@ -197,7 +197,7 @@ export default function Home({ }) {
 
         //     },
         // });
-        
+
         GSAP.from(aimref4.current, {
             opacity: 0,
             y: 100,
@@ -262,6 +262,9 @@ export default function Home({ }) {
                             </p>
 
                             <div className="home__three__net" ref={aimref3}></div>
+
+                            <Link to='/apropos'><Svgcircle /></Link>
+
                             <p className='home__second__sentence' ref={aimref4}>Nous travaillons en étroite collaboration avec nos clients pour créer une stratégie web qui leur convient le mieux.</p>
                         </div>
 
