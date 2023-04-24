@@ -10,7 +10,7 @@ void main() {
     vec3 newposition = position;
     float PI = 3.1415925;
     vUv = uv;
-    newposition.y += sin(position.y * PI * 2.0 + time * .2) * 0.1;
+    // newposition.y += sin(position.y * PI * 2.0) * 0.1;
     gl_Position = projectionMatrix * modelViewMatrix * vec4( newposition, 1.0 );
 }
 `;
