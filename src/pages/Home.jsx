@@ -263,7 +263,6 @@ export default function Home({ }) {
 
                             <div className="home__three__net" ref={aimref3}></div>
 
-                            <Link to='/apropos'><Svgcircle /></Link>
 
                             <p className='home__second__sentence' ref={aimref4}>Nous travaillons en étroite collaboration avec nos clients pour créer une stratégie web qui leur convient le mieux.</p>
                         </div>
