@@ -180,6 +180,7 @@ export default class Sketch {
       console.log(bounds);
       i.mesh.scale.x = bounds.width;
       i.mesh.scale.y = bounds.height;
+      i.mesh.scale.z = bounds.height;
       i.top = bounds.top;
       i.left = bounds.left;
       i.width = bounds.width;
@@ -262,7 +263,8 @@ export default class Sketch {
     this.netSelector = [...document.querySelectorAll(".home__three__net")];
     this.planebounds = this.netSelector.map(o => {
       let bounds = o.getBoundingClientRect();
-      const geometry = new THREE.PlaneGeometry(1, 1, 60, 60);
+      // const geometry = new THREE.PlaneGeometry(1, 1, 60, 60);
+      const geometry = new THREE.IcosahedronGeometry(1, 1);
 
       const material = new THREE.ShaderMaterial({
         uniforms: {

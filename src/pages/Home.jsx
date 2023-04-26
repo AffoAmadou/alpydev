@@ -130,6 +130,7 @@ export default function Home({ }) {
             scrollTrigger: {
                 trigger: colorref.current,
                 start: '10% 90%',
+                duration: 1,
                 onEnter: () => colorTl.play(),
                 onLeaveBack: () => colorTl.reverse(),
             },
@@ -138,9 +139,13 @@ export default function Home({ }) {
         const body = document.querySelector('body');
         colorTl.to(body, {
             backgroundColor: '#317A77',
-            duration: 1,
             ease: 'ease.inOut',
-        });
+        }).to(aimref.current, {
+            color: '#EEE3AB',
+            ease: 'ease.inOut',
+            duration: .2
+        }, 0)
+
 
 
 
