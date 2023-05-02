@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import Navigation from '../components/navigation'
+import Menu from '../components/menu'
 import { useEffect, useRef } from 'react'
 import GSAP from 'gsap'
 import vide from '../assets/show.mp4'
