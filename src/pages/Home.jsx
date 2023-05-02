@@ -14,28 +14,28 @@ const projects = [
         image: "image1.jpg",
         tech: "WordPress",
         year: "2022",
-        title: "Project 1"
+        title: "MY cham"
     },
     {
         id: 2,
         image: "image2.jpg",
         tech: "Shopify",
         year: "2021",
-        title: "Project 2"
+        title: "chanvita"
     },
     {
         id: 3,
         image: "image3.jpg",
         tech: "Wix",
         year: "2023",
-        title: "Project 3"
+        title: "alpes bivouac"
     },
     {
         id: 4,
         image: "image4.jpg",
         tech: "Squarespace",
         year: "2020",
-        title: "Project 4"
+        title: "Aux bureaux"
     }
 ];
 
@@ -52,7 +52,7 @@ export default function Home({ }) {
     const aimref2 = useRef(null);
     const aimref3 = useRef(null);
     const aimref4 = useRef(null);
-
+    const footerref = useRef(null);
 
     useEffect(() => {
 
@@ -147,6 +147,21 @@ export default function Home({ }) {
         }, 0)
 
 
+        const colorFooter = GSAP.timeline({
+            scrollTrigger: {
+                trigger: footerref.current,
+                start: '10% 90%',
+                duration: 1,
+                onEnter: () => colorFooter.play(),
+                onLeaveBack: () => colorFooter.reverse(),
+            },
+        });
+
+
+        colorFooter.to(body, {
+            backgroundColor: 'white',
+            ease: 'ease.inOut',
+        })
 
 
 
@@ -272,6 +287,12 @@ export default function Home({ }) {
                             <p className='home__second__sentence' ref={aimref4}>Nous travaillons en étroite collaboration avec nos clients pour créer une stratégie web qui leur convient le mieux.</p>
                         </div>
 
+                        <div className="home__all__project__link">
+                            <Link to='/projets' className="home__all__project">Decouvrez les tous</Link>
+
+                            <p>*</p>
+                        </div>
+
 
                         <div className="home__projects" ref={section2Ref} >
                             <div className="home__projects__container" ref={cartesContainerRef} >
@@ -282,8 +303,30 @@ export default function Home({ }) {
                                 </div>
                             </div>
                         </div>
-                        <div className="home__t">
-                            <h1>sdjkvndsvndsi</h1>
+                        <div className="home__footer__wrapper" ref={footerref}>
+
+                            <div className="footer">
+                                <div className="footer__wrapper">
+                                    <div className="footer__content">
+                                        <div className="footer__social__wrapper">
+                                            <a href="#" className="linkedin">LN</a>
+                                            <a href="#" className="instagram">IN</a>
+                                        </div>
+                                        <div className="footer__content__wrapper">
+                                            <div className="contact__page">
+                                                <p className="contact__text">Une idée? un Projet?</p>
+                                                <Link to='/contact' className="contact__link">Discuton-en!!</Link>
+                                            </div>
+                                            <a href="mailto:Contact@alpydev.fr" className="footer__mail__link">Contact@alpydev.fr</a>
+                                        </div>
+                                    </div>
+                                    <div className="footer__agency">
+                                        <p className="footer__alpy">Alpy</p>
+                                        <p className="footer__dev">Dev</p>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>

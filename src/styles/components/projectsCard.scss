@@ -1,16 +1,23 @@
 .home__projects__card {
     color: white;
+    background-color: lightblue;
+
+    width: 75.473rem;
+    height: 66.773rem;
+
+    padding: 3.3rem 4.04rem ;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   
-  .home__projects__index {
-    @extend %description-21;
-    margin-bottom: 1.55rem;
-  }
+ 
   
   .home__projects__media {
     width        : 67.4rem;
     height       : 37.955rem;
-    margin-bottom: 1.5rem;
+    // margin-bottom: 7.15rem;
   
     position: relative;
   }
@@ -25,19 +32,9 @@
     left    : 0;
   }
   
-  hr {
-    border       : solid .1rem $color-orange;
-    margin-bottom: 1.5rem;
-  }
+
   
-  .home__projects__content {
-    height         : 5.8rem;
-    display        : flex;
-    flex-direction : column;
-    justify-content: space-between;
-  }
-  
-  .home__projects__details {
+  .home__projects__details__content {
     display        : flex;
     justify-content: space-between;
     @extend %description-15;
@@ -45,6 +42,11 @@
   
   .home__projects__content__title {
     text-transform: uppercase;
-    @extend %description-21;
+    @extend %description-70;
   }
   
+  .home__projects__index {
+    @extend %description-21;
+  }
+
+ 
