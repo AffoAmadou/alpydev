@@ -25,8 +25,12 @@ export default function Menulink(props) {
         <>
             <div className="linkContainer">
                 <p className="index">{props.index}</p>
-                <Link onMouseEnter={e => handleHover(e)} onMouseOut={e => handleHoverExit(e)}  ref={linkref} to='/'>{props.text}</Link>
+                <Link onMouseEnter={e => handleHover(e)} onMouseOut={e => handleHoverExit(e)} ref={linkref} to={"/" + props.text.replace(/\s+/g, '')}>{props.text}</Link>
             </div>
         </>
     )
 }
+
+
+//remove space in props.text
+// const text = ;

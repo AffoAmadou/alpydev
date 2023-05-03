@@ -32,16 +32,31 @@ const menu = useRef(null);
             // fadeInUp(info);
         }
     }, [state]);
+
+    const change = () => {
+      
+        setState({ clicked: !state.clicked});
+
+        console.log(state);
+       
+        GSAP.to(menu, {
+            duration: 2,
+            css: { display: 'none' }
+        })
+        
+        console.log(state);
+
+    }
     return (
         <>
             <div className="menu" ref={menu}>
                 <div className="menu__wrapper">
 
                     <div className="linkwrapper">
-                        <Menulink index="01" text="Accueil" />
-                        <Menulink index="02" text="A propos" />
-                        <Menulink index="03" text="Projets" />
-                        <Menulink index="04" text="Contact" />
+                        <Menulink index="01" text="Accueil" onClick={change} />
+                        <Menulink index="02" text="A propos" onClick={change} />
+                        <Menulink index="03" text="Projets" onClick={change} />
+                        <Menulink index="04" text="Contact" onClick={change} />
                     </div>
 
                     <div className="menu__infos">

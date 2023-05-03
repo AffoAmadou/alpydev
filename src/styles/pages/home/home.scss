@@ -106,6 +106,9 @@
   // background-color: $color-blue;
 }
 
+.home__proj{
+}
+
 .home__projects__container {
   height     : 100%;
   display    : flex;
@@ -232,6 +235,8 @@
   display        : flex;
   justify-content: center;
   align-items    : flex-end;
+  background-color: #EEE3AB;
+  color: #317A77;
 }
 
 .footer__wrapper {

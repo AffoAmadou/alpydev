@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import Navigation from '../components/navigation'
+import Footer from '../components/footer'
 import Menu from '../components/menu'
 import { useEffect, useRef } from 'react'
 import GSAP from 'gsap'
@@ -7,44 +8,12 @@ import vide from '../assets/show.mp4'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 //Components
-import Card from '../components/projectscard'
 import Svgcircle from '../components/svgCircle'
-const projects = [
-    {
-        id: 1,
-        image: "image1.jpg",
-        tech: "WordPress",
-        year: "2022",
-        title: "MY cham"
-    },
-    {
-        id: 2,
-        image: "image2.jpg",
-        tech: "Shopify",
-        year: "2021",
-        title: "chanvita"
-    },
-    {
-        id: 3,
-        image: "image3.jpg",
-        tech: "Wix",
-        year: "2023",
-        title: "alpes bivouac"
-    },
-    {
-        id: 4,
-        image: "image4.jpg",
-        tech: "Squarespace",
-        year: "2020",
-        title: "Aux bureaux"
-    }
-];
+import Projects from '../components/selectedprojectcs'
 
 
 export default function Home({ }) {
-    const cartesRef = useRef(null);
-    const cartesContainerRef = useRef(null);
-    const section2Ref = useRef(null);
+   
     const videoRef = useRef(null);
     const line = useRef(null);
     const colorref = useRef(null);
@@ -53,13 +22,12 @@ export default function Home({ }) {
     const aimref2 = useRef(null);
     const aimref3 = useRef(null);
     const aimref4 = useRef(null);
-    const footerref = useRef(null);
 
     useEffect(() => {
 
-        const carteWidth = cartesRef.current.querySelector('.home__projects__card').offsetWidth;
-        const cartesLength = cartesRef.current.querySelectorAll('.home__projects__card').length;
-        const cartesContainerWidth = cartesContainerRef.current.offsetWidth;
+        // const carteWidth = cartesRef.current.querySelector('.home__projects__card').offsetWidth;
+        // const cartesLength = cartesRef.current.querySelectorAll('.home__projects__card').length;
+        // const cartesContainerWidth = cartesContainerRef.current.offsetWidth;
 
 
         GSAP.registerPlugin(ScrollTrigger);
@@ -109,19 +77,19 @@ export default function Home({ }) {
         });
 
 
-        GSAP.set(cartesRef.current, {
-            x: cartesContainerWidth / 2 - carteWidth / 2,
-        });
+        // GSAP.set(cartesRef.current, {
+        //     x: cartesContainerWidth / 2 - carteWidth / 2,
+        // });
 
-        GSAP.to(cartesRef.current, {
-            x: () => -((carteWidth * (cartesLength - 1)) - (cartesContainerWidth / 2) + (carteWidth / 2)),
-            scrollTrigger: {
-                trigger: section2Ref.current,
-                start: 'top top',
-                scrub: 1,
-                pin: true,
-            },
-        });
+        // GSAP.to(cartesRef.current, {
+        //     x: () => -((carteWidth * (cartesLength - 1)) - (cartesContainerWidth / 2) + (carteWidth / 2)),
+        //     scrollTrigger: {
+        //         trigger: section2Ref.current,
+        //         start: 'top top',
+        //         scrub: 1,
+        //         pin: true,
+        //     },
+        // });
         // Add the showreel and projects timelines to the main timeline
         tl.add(showreelTl, 0.5).add(projectsTl, 1);
 
@@ -148,21 +116,7 @@ export default function Home({ }) {
         }, 0)
 
 
-        const colorFooter = GSAP.timeline({
-            scrollTrigger: {
-                trigger: footerref.current,
-                start: '10% 90%',
-                duration: 1,
-                onEnter: () => colorFooter.play(),
-                onLeaveBack: () => colorFooter.reverse(),
-            },
-        });
 
-
-        colorFooter.to(body, {
-            backgroundColor: 'white',
-            ease: 'ease.inOut',
-        })
 
 
 
@@ -237,7 +191,6 @@ export default function Home({ }) {
     return (
         <>
             <div className="home">
-                <Navigation />
                 <div className="home__wrapper">
                     <div className="home__header__wrapper">
 
@@ -295,7 +248,7 @@ export default function Home({ }) {
                         </div>
 
 
-                        <div className="home__projects" ref={section2Ref} >
+                        {/* <div className="home__projects" ref={section2Ref} >
                             <div className="home__projects__container" ref={cartesContainerRef} >
                                 <div className="home__project__cards" ref={cartesRef}>
                                     {projects.map((project) => (
@@ -303,31 +256,10 @@ export default function Home({ }) {
                                     ))}
                                 </div>
                             </div>
-                        </div>
-                        <div className="home__footer__wrapper" ref={footerref}>
+                        </div> */}
 
-                            <div className="footer">
-                                <div className="footer__wrapper">
-                                    <div className="footer__content">
-                                        <div className="footer__social__wrapper">
-                                            <a href="#" className="linkedin">LN</a>
-                                            <a href="#" className="instagram">IN</a>
-                                        </div>
-                                        <div className="footer__content__wrapper">
-                                            <div className="contact__page">
-                                                <p className="contact__text">Une idée? un Projet?</p>
-                                                <Link to='/contact' className="contact__link">Discuton-en!!</Link>
-                                            </div>
-                                            <a href="mailto:Contact@alpydev.fr" className="footer__mail__link">Contact@alpydev.fr</a>
-                                        </div>
-                                    </div>
-                                    <div className="footer__agency">
-                                        <p className="footer__alpy">Alpy</p>
-                                        <p className="footer__dev">Dev</p>
-                                    </div>
-                                </div>
-                            </div>
-
+                        <div className="home__proj">
+<Projects />
                         </div>
                     </div>
                 </div>
