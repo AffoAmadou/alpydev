@@ -3,23 +3,7 @@ import GSAP from 'gsap'
 import { useEffect, useRef } from 'react'
 
 export default function Menulink(props) {
-    const linkref = useRef(null)
-    const handleHover = e => {
-        console.log(e.target)
-        GSAP.to(linkref.current, {
-            color: '#EEE3AB',
-            duration: 0.3,
-            ease: 'ease',
-        });
-    };
-    const handleHoverExit = e => {
-        console.log(e.target)
-        GSAP.to(linkref.current, {
-            color: 'transparent',
-            duration: 0.3,
-            ease: 'ease',
-        });
-    };
+   
 
     return (
         <>
