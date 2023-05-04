@@ -130,7 +130,7 @@ export default function Home({ }) {
                 start: "top 40%",
                 end: "bottom 30%",
                 scrub: true,
-                markers: true,
+                // markers: true,
                 // pin: true,
             },
         });
