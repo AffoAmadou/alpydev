@@ -84,7 +84,7 @@ const Preloader = () => {
   return (
     <div className='preloader' >
       {isLoading ? (
-        <div>Loading {percentage}%</div>
+        <div>Loadincg {percentage}%</div>
       ) : (
         <div>Loaded!</div>
       )}
