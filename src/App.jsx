@@ -33,7 +33,7 @@ export default function App() {
           <Route path="Contact" element={<Contact template="contact" />} ></Route>
           <Route path="Apropos" element={<Apropos template="apropos" />} ></Route>
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
       </section>
       <div className="cont" ref={canvas} style={{ height: "100vh" }} />
     </>
