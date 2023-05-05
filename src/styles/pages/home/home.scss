@@ -39,12 +39,19 @@
   @extend %description-80;
 
   width: 103.3rem;
+
+  opacity: 0;
+  transform: translate(0, 100px);
+  will-change: transform, opacity;
 }
 
 .home__header__subtitle {
   @extend %description-41;
   width     : 44.6rem;
   align-self: flex-end;
+   opacity: 0;
+  transform: translate(0, 100px);
+  will-change: transform, opacity;
 }
 
 .home__header__svg {

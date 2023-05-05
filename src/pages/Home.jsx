@@ -73,24 +73,22 @@ export default function Home({ }) {
         // GSAP.registerPlugin(ScrollTrigger);
 
         // // Declare the timeline variable
-        // const tl = GSAP.timeline();
+        const tl = GSAP.timeline();
 
-        // // Animation for header content
-        // tl.fromTo(['.home__header__title', '.home__header__subtitle'],
-        //     { y: 100, opacity: 0 },
-        //     {
-        //         y: 0,
-        //         opacity: 1,
-        //         duration: 1,
-        //         delay: 0.5,
-        //         ease: "ease.inOut",
-        //         stagger: 0.2
-        //     }).from(line.current, {
-        //         transformOrigin: 'top',
-        //         height: '0%',
-        //         ease: "ease.inOut",
-        //         duration: 1,
-        //     }, 0.5);
+        // Animation for header content
+        tl.to(['.home__header__title', '.home__header__subtitle'],
+            {
+                y: 0,
+                opacity: 1,
+                duration: 1.5,
+                ease: "ease.inOut",
+                stagger: 0.2
+            }).from(line.current, {
+                transformOrigin: 'top',
+                height: '0%',
+                ease: "ease.inOut",
+                duration: 1,
+            }, 0.5);
 
         // // Animation for showreel
         // //animation should start from the top of the showreel and not the center
@@ -227,7 +225,7 @@ export default function Home({ }) {
     
         return (
             <>
-            <Preloader />
+            {/* <Preloader /> */}
                 <div className="home">
                     <div className="home__wrapper">
                         <div className="home__header__wrapper">
