@@ -65,7 +65,10 @@ const Preloader = () => {
           return projects;
         }
 
-        const response = await fetch('https://alpydev.amadouh.fr/wp-json/wp/v2/projects');
+
+        const response = await fetch('https://alpydev.amadouh.fr/wp-json/wp/v2/projects', {
+          });
+        // const response = await fetch('https://alpydev.amadouh.fr/wp-json/wp/v2/projects');
         const data = await response.json();
         const updatedProjects = await updateImageUrls(data);
 
