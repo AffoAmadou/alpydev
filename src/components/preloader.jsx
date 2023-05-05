@@ -69,6 +69,7 @@ const Preloader = () => {
         const data = await response.json();
         const updatedProjects = await updateImageUrls(data);
 
+        console.log(updatedProjects);
         setProjects(updatedProjects);
 
         setIsLoading(false);
@@ -81,7 +82,7 @@ const Preloader = () => {
   }, []);
 
   return (
-    <div>
+    <div className='preloader' >
       {isLoading ? (
         <div>Loading {percentage}%</div>
       ) : (
