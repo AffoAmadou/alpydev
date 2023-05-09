@@ -2,20 +2,25 @@ import { Link } from 'react-router-dom'
 import Navigation from '../components/navigation'
 import Footer from '../components/footer'
 import Menu from '../components/menu'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useContext } from 'react'
 import GSAP from 'gsap'
 import vide from '../assets/show.mp4'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
+import SelectedProject from '../components/selectedprojectcs'
+
 //Components
 import Svgcircle from '../components/svgCircle'
 import Projects from '../components/selectedprojectcs'
-import Preloader from '../components/preloader'
+
+import { ProjectContext } from '../context/contex';
 
 
 export default function Home({ }) {
+    const { projects } = useContext(ProjectContext);
 
-   
+    // console.log(projects);
+
     const videoRef = useRef(null);
     const line = useRef(null);
     const colorref = useRef(null);
@@ -26,50 +31,6 @@ export default function Home({ }) {
     const aimref4 = useRef(null);
 
     useEffect(() => {
-
-        // const fetchProjects = async () => {
-        //     try {
-        //         async function fetchImageData(imageId) {
-        //             const response = await fetch(`https://alpydev.amadouh.fr/wp-json/wp/v2/media/${imageId}`);
-        //             const data = await response.json();
-        //             return data.source_url;
-        //         }
-
-        //         async function updateImageUrls(projects) {
-        //             for (let project of projects) {
-                       
-        //                 project.content_image = await fetchImageData(project.acf.content_image);
-        //                 project.content_image_second = await fetchImageData(project.acf.content_image_second);
-        //                 project.first_mockup = await fetchImageData(project.acf.first_mockup);
-        //                 project.hero_image = await fetchImageData(project.acf.hero_image);
-        //                 project.second__mockup = await fetchImageData(project.acf.second__mockup);
-        //             }
-        //             return projects;
-        //         }
-
-        //         const response = await fetch('https://alpydev.amadouh.fr/wp-json/wp/v2/projects');
-        //         const data = await response.json();
-        //         const updatedProjects = await updateImageUrls(data);
-
-        //         console.log(updatedProjects);
-        //         setProjects(updatedProjects);
-        //         setTimeout(() => {
-        //             setIsLoading(false);
-        //         }, 2000);
-        //     } catch (error) {
-        //         console.log(error);
-        //     }
-        // };
-
-        // fetchProjects();
-
-
-
-        // // const carteWidth = cartesRef.current.querySelector('.home__projects__card').offsetWidth;
-        // // const cartesLength = cartesRef.current.querySelectorAll('.home__projects__card').length;
-        // // const cartesContainerWidth = cartesContainerRef.current.offsetWidth;
-
-
         // GSAP.registerPlugin(ScrollTrigger);
 
         // // Declare the timeline variable
@@ -222,45 +183,96 @@ export default function Home({ }) {
 
     }, []);
 
-    
-        return (
-            <>
+
+    return (
+        <>
             {/* <Preloader /> */}
-                <div className="home">
-                    <div className="home__wrapper">
-                        <div className="home__header__wrapper">
+            <div className="home">
+                <div className="home__wrapper">
+                    <div className="home__header__wrapper">
 
-                            <div className="home__line" ref={line}></div>
+                        <div className="home__line" ref={line}></div>
 
-                            <div className="home__header__content">
-                                <h1 className="home__header__title">Alpy dev est une Agence web
-                                    basée à Annecy,<br />
-                                    France.</h1>
-                                <p className="home__header__subtitle">
-                                    Solutions web de qualité
-                                    pour renforcer les
-                                    entreprises.
-                                </p>
-                            </div>
-                            <Link to='/apropos'><Svgcircle /></Link>
-                        </div>
-
-                        <div className="home__showreel__container">
-                            <div className="home__showreel__wrapper">
-                                <video ref={videoRef} className='home__showreel' autoPlay muted loop>
-                                    <source src={vide} type='video/mp4' />
-                                </video>
-                            </div>
-                        </div>
-                        <div className="home__aim">
-                            <p className="home__aim__text" ref={aimref}>
-                                Nous aidons les entreprises en leur
-                                fournissant les outils du web les
-                                mieux adaptés à leurs besoins.
+                        <div className="home__header__content">
+                            <h1 className="home__header__title">Alpy dev est une Agence web
+                                basée à Annecy,<br />
+                                France.</h1>
+                            <p className="home__header__subtitle">
+                                Solutions web de qualité
+                                pour renforcer les
+                                entreprises.
                             </p>
                         </div>
+                        <Link to='/apropos'><Svgcircle /></Link>
+                    </div>
 
-                        <div className="home__section__color" ref={colorref}>
+                    <div className="home__showreel__container">
+                        <div className="home__showreel__wrapper">
+                            <video ref={videoRef} className='home__showreel' autoPlay muted loop>
+                                <source src={vide} type='video/mp4' />
+                            </video>
+                        </div>
+                    </div>
+                    <div className="home__aim">
+                        <p className="home__aim__text" ref={aimref}>
+                            Nous aidons les entreprises en leur
+                            fournissant les outils du web les
+                            mieux adaptés à leurs besoins.
+                        </p>
+                    </div>
+
+
+
+
+                    <SelectedProject />
+
+                    <div className="home__etude">
+                        <div className="home__etude__wrapper">
+                            <div className="home__etude__content">
+                                <h2 className="home__etude__title">Etudes des cas </h2>
+                                <div className="home__etude__description__wrapper">
+                                    <p className="home__etude__description">
+                                        Nous prenons en charge chaque client de manière
+                                        personnalisée en comprenant ses besoins et en
+                                        évaluant ses objectifs à court et à long terme.
+                                    </p>
+                                    <p className="home__etude__subdescription">
+                                        Nous travaillons en étroite collaboration avec nos
+                                        clients pour créer une stratégie web qui leur
+                                        convient le mieux.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div className="home__project">
+
+                        <h2 className="home__project__title">Projets</h2>
+
+
+                        <div className="home__project__container">
+                            {projects.map((project) => (
+
+                                <div className="project__wrapper">
+
+                                    <h2 className="project__title">{project.title.rendered}</h2>
+                                    <figure className="project__media">
+                                        <img className='project__media__image' src={project.hero_image} alt={project.title} />
+                                    </figure>
+
+                                </div>
+                            ))
+                            }
+
+
+                            <div className="project__wrapper">
+
+                            </div>
+                        </div>
+                    </div>
+                    {/* <div className="home__section__color" ref={colorref}> 
                             <div className="home__selected__project__container">
                                 <h2 className="home__selected__project" ref={colorTextRef}><span> Études </span>
                                     cas clients</h2>
@@ -284,7 +296,7 @@ export default function Home({ }) {
                             </div>
 
 
-                            {/* <div className="home__projects" ref={section2Ref} >
+                             <div className="home__projects" ref={section2Ref} >
                             <div className="home__projects__container" ref={cartesContainerRef} >
                                 <div className="home__project__cards" ref={cartesRef}>
                                     {projects.map((project) => (
@@ -292,15 +304,14 @@ export default function Home({ }) {
                                     ))}
                                 </div>
                             </div>
-                        </div> */}
-
-                            <div className="home__proj">
-                                <Projects />
-                            </div>
+                         </div> 
+                         
                         </div>
-                    </div>
+                         */}
+
                 </div>
-            </>
-        )
-    
+            </div>
+        </>
+    )
+
 }
